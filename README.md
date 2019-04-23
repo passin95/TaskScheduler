@@ -51,7 +51,7 @@ TaskScheduler.newBuilder()
 ## 安装
 
 ```gradle
-implementation 'me.passin:taskscheduler:0.0.1'
+implementation 'me.passin:taskscheduler:0.0.2'
 ```
 
 ## License
