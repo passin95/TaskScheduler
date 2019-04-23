@@ -28,8 +28,7 @@ public class SchedulerCenter {
     private ExecutorService mExecutorService;
     private CountDownLatch mCounter;
 
-    SchedulerCenter(List<Task> tasks,
-            ExecutorService executorService) {
+    SchedulerCenter(List<Task> tasks, ExecutorService executorService) {
         mTasks = Collections.unmodifiableList(tasks);
         mDirectedAcyclicGraph = new DirectedAcyclicGraph<>(mTasks.size());
         mTaskMap = new HashMap<>(mTasks.size());
@@ -64,7 +63,7 @@ public class SchedulerCenter {
     }
 
     private void initExecutorService(ExecutorService executorService) {
-        if (mExecutorService == null) {
+        if (executorService == null) {
             int corePoolSize = Math.min(mNoDependentTasks.size() / 2, CPU_COUNT / 2);
             int maximumPoolSize = Math.max(1, corePoolSize * 2);
             mExecutorService = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, 30L, TimeUnit.SECONDS,
